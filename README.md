@@ -1,6 +1,6 @@
 # Business Proposal
 
-<img src="aluga-se.png">
+![Banner](aluga-se.png)
 
 Build a model to predict the cost of renting a certain property, such a model can be of extreme help to the client so that he can create new business strategies and have a better view of the market, depending on the region or period. 
 
@@ -14,46 +14,9 @@ Beyond that, this study seeks to answer some hypotheses such as:
 
 The data for carrying out this project was taken from: https://www.kaggle.com/rubenssjr/brasilian-houses-to-rent?select=houses_to_rent_v2.csv
 
-# 1.0 Importing Libraries
 
+# 1.0 Dataset
 
-```python
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-from IPython.display import display, Markdown
-%matplotlib inline
-```
-
-# 1.1 Importing Dataset
-
-
-```python
-df = pd.read_csv('houses_to_rent_v2.csv')
-```
-
-
-```python
-df.head()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -156,7 +119,6 @@ df.head()
     </tr>
   </tbody>
 </table>
-</div>
 
 
 
@@ -164,82 +126,54 @@ df.head()
 
 ### 2.1 General Dataset Analysis
 
-
-```python
-df.isnull().sum()
-```
+Checking for missing values
 
 
 
-
-    city                   0
-    area                   0
-    rooms                  0
-    bathroom               0
-    parking spaces         0
-    floor                  0
-    animal                 0
-    furniture              0
-    hoa (R$)               0
-    rent amount (R$)       0
-    property tax (R$)      0
-    fire insurance (R$)    0
-    total (R$)             0
-    dtype: int64
+    |Feature                |Number of Missing Values|
+    |-----------------------|-|
+    |city                   |0|
+    |area                   |0|
+    |rooms                  |0|
+    |bathroom               |0|
+    |parking spaces         |0|
+    |floor                  |0|
+    |animal                 |0|
+    |furniture              |0|
+    |hoa (R$)               |0|
+    |rent amount (R$)       |0|
+    |property tax (R$)      |0|
+    |fire insurance (R$)    |0|
+    |total (R$)             |0|
+    
 
 
 
 There are no missing values
 
 
-```python
-df.info()
-```
 
-    <class 'pandas.core.frame.DataFrame'>
-    RangeIndex: 10692 entries, 0 to 10691
-    Data columns (total 13 columns):
-     #   Column               Non-Null Count  Dtype 
-    ---  ------               --------------  ----- 
-     0   city                 10692 non-null  object
-     1   area                 10692 non-null  int64 
-     2   rooms                10692 non-null  int64 
-     3   bathroom             10692 non-null  int64 
-     4   parking spaces       10692 non-null  int64 
-     5   floor                10692 non-null  object
-     6   animal               10692 non-null  object
-     7   furniture            10692 non-null  object
-     8   hoa (R$)             10692 non-null  int64 
-     9   rent amount (R$)     10692 non-null  int64 
-     10  property tax (R$)    10692 non-null  int64 
-     11  fire insurance (R$)  10692 non-null  int64 
-     12  total (R$)           10692 non-null  int64 
-    dtypes: int64(9), object(4)
-    memory usage: 1.1+ MB
+
     
 
+    | # |  Column               |Non-Null Count|  Dtype |
+    |---|  ------               |--------------|  ----- |
+    | 0 |  city                 |10692 non-null|  object|
+    | 1 |  area                 |10692 non-null|  int64 |
+    | 2 |  rooms                |10692 non-null|  int64 |
+    | 3 |  bathroom             |10692 non-null|  int64 |
+    | 4 |  parking spaces       |10692 non-null|  int64 |
+    | 5 |  floor                |10692 non-null|  object|
+    | 6 |  animal               |10692 non-null|  object|
+    | 7 |  furniture            |10692 non-null|  object|
+    | 8 |  hoa (R$)             |10692 non-null|  int64 |
+    | 9 |  rent amount (R$)     |10692 non-null|  int64 |
+    | 10|  property tax (R$)    |10692 non-null|  int64 |
+    | 11|  fire insurance (R$)  |10692 non-null|  int64 |
+    | 12|  total (R$)           |10692 non-null|  int64 |
+    
+    
 
-```python
-df.describe()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -354,37 +288,16 @@ df.describe()
     </tr>
   </tbody>
 </table>
-</div>
+
 
 
 
 Checking total value distribution as well as outliers.
 
 
-```python
-plt.figure(figsize = (6,6))
-sns.histplot(df['total (R$)'], kde = True)
-sns.set_style('whitegrid')
-plt.title("Distribution of Total (R$)")
-```
-
-
-
-
-    Text(0.5, 1.0, 'Distribution of Total (R$)')
-
-
-
 
 ![png](Aluguel_Brasil_files/Aluguel_Brasil_14_1.png)
 
-
-
-```python
-plt.figure(figsize = (6,6))
-sns.boxplot(x = df['total (R$)'])
-sns.set_style('whitegrid')
-```
 
 
 ![png](Aluguel_Brasil_files/Aluguel_Brasil_15_0.png)
@@ -393,42 +306,6 @@ sns.set_style('whitegrid')
 Large presence of outliers, attempt to remove them with the assistence of IQR-Score.
 
 
-```python
-q1 = df['total (R$)'].quantile(0.25)
-q3 = df['total (R$)'].quantile(0.75)
-
-IQR = q3 - q1
-Inferior = q1 - (1.5 * IQR)
-Superior = q3 + (1.5 * IQR)
-```
-
-
-```python
-df = df[~((df['total (R$)'] < Inferior) | (df['total (R$)'] > Superior))]
-```
-
-
-```python
-df
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -628,8 +505,6 @@ df
   </tbody>
 </table>
 <p>9986 rows × 13 columns</p>
-</div>
-
 
 
 After removing the outliers, the dataset showed the removal of 1096 values ​​from the original dataset, representing a loss of approximately 10.25% of the data.
@@ -637,37 +512,7 @@ After removing the outliers, the dataset showed the removal of 1096 values ​�
 Checking new distribution, after removing outliers
 
 
-```python
-plt.figure(figsize = (6,6))
-sns.histplot(df['total (R$)'], kde = True)
-sns.set_style('whitegrid')
-plt.title("Distribution of Total (R$) without Outliers")
-```
-
-
-
-
-    Text(0.5, 1.0, 'Distribution of Total (R$) without Outliers')
-
-
-
-
 ![png](Aluguel_Brasil_files/Aluguel_Brasil_22_1.png)
-
-
-
-```python
-plt.figure(figsize=(10,6))
-ax = sns.heatmap(df.corr(),annot=True,cmap='viridis')
-bottom, top = ax.get_ylim()
-ax.set_ylim(bottom + 0.5, top - 0.5)
-```
-
-
-
-
-    (9.5, -0.5)
-
 
 
 
@@ -684,28 +529,6 @@ From the correlation graph and the total value distribution, we can answer some 
 
 ## 2.2 City
 
-
-```python
-df.groupby('city')['total (R$)'].describe()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -789,24 +612,6 @@ df.groupby('city')['total (R$)'].describe()
     </tr>
   </tbody>
 </table>
-</div>
-
-
-
-
-```python
-g = sns.FacetGrid(df, col = 'city',col_wrap=5)
-g = g.map(sns.histplot,'total (R$)',kde=False)
-g.fig.tight_layout()
-axes = g.axes.flatten()
-axes[0].set_title("São Paulo")
-axes[1].set_title("Porto Alegre")
-axes[2].set_title("Rio de Janeiro")
-axes[3].set_title("Campinas")
-axes[4].set_title("Belo Horizonte")
-for ax in g.axes.flatten():
-    ax.tick_params(labelbottom=True)
-```
 
 
 ![png](Aluguel_Brasil_files/Aluguel_Brasil_27_0.png)
@@ -823,77 +628,24 @@ With this data, we can present a few points:
 ## 2.3 Area
 
 
-```python
-df['area'].describe()
-```
+Area Value description: 
 
-
-
-
-    count     9986.000000
-    mean       131.632886
-    std        492.747146
-    min         11.000000
-    25%         55.000000
-    50%         85.000000
-    75%        160.000000
-    max      46335.000000
-    Name: area, dtype: float64
-
-
-
-
-```python
-plt.figure(figsize = (6,6))
-sns.histplot(df['area'], kde = True)
-sns.set_style('whitegrid')
-plt.title("Distribution of Area")
-```
-
-
-
-
-    Text(0.5, 1.0, 'Distribution of Area')
-
-
+    |count|     9986.000000|
+    |mean |      131.632886|
+    |std  |      492.747146|
+    |min  |       11.000000|
+    |25%  |       55.000000|
+    |50%  |       85.000000|
+    |75%  |      160.000000|
+    |max  |    46335.000000|
 
 
 ![png](Aluguel_Brasil_files/Aluguel_Brasil_31_1.png)
 
 
-
-```python
-plt.figure(figsize = (6,6))
-sns.boxplot(x = df['area'])
-sns.set_style('whitegrid')
-```
-
-
 ![png](Aluguel_Brasil_files/Aluguel_Brasil_32_0.png)
 
 
-
-```python
-df[df['area']>1000]
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1028,31 +780,11 @@ df[df['area']>1000]
     </tr>
   </tbody>
 </table>
-</div>
+
 
 
 
 It is possible to notice the presence of some outliers in the area feature, choosing to remove them to improve the analysis.
-
-
-```python
-df = df.drop(df[df['area']>1000].index)
-```
-
-
-```python
-plt.figure(figsize = (10,6))
-sns.histplot(df['area'], kde = True)
-sns.set_style('whitegrid')
-plt.title("Distribution of Area without Outliers")
-```
-
-
-
-
-    Text(0.5, 1.0, 'Distribution of Area without Outliers')
-
-
 
 
 ![png](Aluguel_Brasil_files/Aluguel_Brasil_36_1.png)
@@ -1061,44 +793,26 @@ plt.title("Distribution of Area without Outliers")
 After the removal of the outliers the value of area presents an assimetric distribution to the right, with most of the properties having an total area of 85 m².
 
 
-```python
-df.corr()['area'].sort_values(ascending=False)
-```
 
 
-
-
-    area                   1.000000
-    bathroom               0.758467
-    rooms                  0.712997
-    fire insurance (R$)    0.685954
-    parking spaces         0.675172
-    total (R$)             0.644425
-    rent amount (R$)       0.641735
-    property tax (R$)      0.594951
-    hoa (R$)               0.221472
-    Name: area, dtype: float64
+    |Feature                |Correlation Score|
+    |-----------------------|--------|
+    |area                   |1.000000|
+    |bathroom               |0.758467|
+    |rooms                  |0.712997|
+    |fire insurance (R$)    |0.685954|
+    |parking spaces         |0.675172|
+    |total (R$)             |0.644425|
+    |rent amount (R$)       |0.641735|
+    |property tax (R$)      |0.594951|
+    |hoa (R$)               |0.221472|
+    
 
 
 
 Here we can see the obvious correlation between the number of rooms and bathrooms and the area, this happens due to the fact that the greater the number of rooms in the property, the larger the area will be.
 
 But what is the correlation between the area and the total value?
-
-
-```python
-plt.figure(figsize = (10,6))
-sns.regplot(x = df['area'],y = df['total (R$)'])
-sns.set_style('whitegrid')
-plt.title("Total (R$) x Area")
-```
-
-
-
-
-    Text(0.5, 1.0, 'Total (R$) x Area')
-
-
 
 
 ![png](Aluguel_Brasil_files/Aluguel_Brasil_40_1.png)
@@ -1108,30 +822,6 @@ The features seem to have some kind of correlation, but nothing concrect, or tot
 
 ## 2.4 Bathrooms and Rooms
 
-
-```python
-quartos_banheiros = pd.DataFrame({'Bathroom': df['bathroom'].describe(), 'Rooms': df['rooms'].describe()}).transpose()
-quartos_banheiros['mode'] = [1,3]
-quartos_banheiros
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1174,34 +864,9 @@ quartos_banheiros
     </tr>
   </tbody>
 </table>
-</div>
-
 
 
 We are able to see that on avarege most properties have between 2 and 3 rooms and between 1 and 2 bathrooms.
-
-
-```python
-fig, axes = plt.subplots(1,2, figsize=(18,6))
-
-#Rooms
-sns.regplot(ax=axes[0], x=df['rooms'], y=df['total (R$)'])
-sns.set_style('whitegrid')
-axes[0].set_title('Total Rent x Number of Rooms')
-
-#Bathrooms
-sns.regplot(ax=axes[1], x=df['bathroom'], y=df['total (R$)'])
-sns.set_style('whitegrid')
-axes[1].set_title('Total Rent x Number of Bathrooms')
-```
-
-
-
-
-    Text(0.5, 1.0, 'Total Rent x Number of Bathrooms')
-
-
-
 
 ![png](Aluguel_Brasil_files/Aluguel_Brasil_45_1.png)
 
@@ -1210,28 +875,6 @@ As expected we can see that the higher number of rooms/bathrooms the higher will
 
 ## 2.5 Parking Spaces
 
-
-```python
-df.groupby('city')[['parking spaces','total (R$)']].mean()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1273,27 +916,10 @@ df.groupby('city')[['parking spaces','total (R$)']].mean()
     </tr>
   </tbody>
 </table>
-</div>
 
 
 
 It seems like most properties have on average between one and two parking spaces, with São Paulo and Belo Horizonte coming ahead with the  higher averages, with 1.67 and 1.83 parking spaces respectively. It's also something to notice that even though most properties in Rio de Janeiro have on average only 0.69 parking spaces, they have the third highest total value of rent.
-
-
-```python
-plt.figure(figsize = (10,6))
-sns.regplot(x = df['parking spaces'],y = df['total (R$)'])
-sns.set_style('whitegrid')
-plt.title("Total (R$) x Parking Spaces")
-```
-
-
-
-
-    Text(0.5, 1.0, 'Total (R$) x Parking Spaces')
-
-
-
 
 ![png](Aluguel_Brasil_files/Aluguel_Brasil_50_1.png)
 
@@ -1304,57 +930,17 @@ Also as expected, we can see that higher the number of parking spaces the higher
 
 Due to the fact that doesn't seem to be any correlation between the floor in witch the property is located and the total rent value, and also the fact that this feature doesn't seem to have any importance for this analysis, this feature will be removed from the DataFrame.
 
-
-```python
-df = df.drop('floor',axis=1)
-```
-
 ## 2.7 Animals/Pets
 
 Firstly let's change this feature in a way that properties that accept pets are labeled with a value of 1 and properties that don't accept pets will be labeled with a value of 0.
 
-
-```python
-df['animal'] = df['animal'].map({'acept':1,'not acept':0})
-```
-
-
-```python
-permitem_animais = df[df['animal']==1].groupby('city')['animal'].count()
-nao_permitem_animais = df[df['animal']==0].groupby('city')['animal'].count()
-animais = pd.merge(permitem_animais,nao_permitem_animais, right_index = True, left_index = True)
-animais.rename(columns={'animal_x':'Allow Pets','animal_y':"Doesn't Allow Pets"},inplace=True)
-animais
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>City</th>
       <th>Allow Pets</th>
       <th>Doesn't Allow Pets</th>
-    </tr>
-    <tr>
-      <th>city</th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -1385,42 +971,17 @@ animais
     </tr>
   </tbody>
 </table>
-</div>
-
 
 
 As we can see above, in all cities we have in the dataframe most of the properties allow people to have pets, with only a few not allowing them. Now let's see how this has any effect on the total value of rent. 
 
 
-```python
-df.groupby('animal')['total (R$)'].mean()
-```
 
-
-
-
-    animal
-    0    3927.473942
-    1    4456.649341
-    Name: total (R$), dtype: float64
-
-
-
-
-```python
-plt.figure(figsize = (10,6))
-sns.boxplot(x='animal',y='total (R$)',data=df)
-sns.set_style('whitegrid')
-plt.title("Total (R$) x Pets")
-```
-
-
-
-
-    Text(0.5, 1.0, 'Total (R$) x Pets')
-
-
-
+    |Animal/Pets|Avarege Total Rent Value (R$)|
+    |-----------|-----------------------------|
+    |Don't Allow|                  3927.473942|
+    |Allow      |                  4456.649341|
+ 
 
 ![png](Aluguel_Brasil_files/Aluguel_Brasil_61_1.png)
 
@@ -1431,51 +992,14 @@ As we can see the total value of rent seem to be higher in properties that allow
 
 This feature we will do the same as what we did the animal/pets feature. For properties that are furnished we will label them with a 1 value and for properties that are not furnished we will label them with a 0 value.
 
-
-```python
-df['furniture'] = df['furniture'].map({'furnished':1,'not furnished':0})
-```
-
-
-```python
-mobiliadas = df[df['furniture']==1].groupby('city')['furniture'].count()
-nao_mobiliadas = df[df['furniture']==0].groupby('city')['furniture'].count()
-mobilia = pd.merge(mobiliadas,nao_mobiliadas, right_index = True, left_index = True)
-mobilia.rename(columns={'furniture_x':'Furnished','furniture_y':"Not Furnished"},inplace=True)
-mobilia['Furnished Percentage'] = (mobilia['Furnished']/(mobilia['Furnished']+mobilia['Not Furnished']))*100
-mobilia
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>City</th>
       <th>Furnished</th>
       <th>Not Furnished</th>
       <th>Furnished Percentage</th>
-    </tr>
-    <tr>
-      <th>city</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -1511,41 +1035,18 @@ mobilia
     </tr>
   </tbody>
 </table>
-</div>
+
 
 
 
 As we can see in all cities most properties for rent are not furnished, with Porto Alegre, Rio and São Paulo with around 26% of their properties being furnished. 
 
 
-```python
-df.groupby('furniture')['total (R$)'].mean()
-```
 
-
-
-
-    furniture
-    0    4022.718672
-    1    5355.286684
-    Name: total (R$), dtype: float64
-
-
-
-
-```python
-plt.figure(figsize = (10,6))
-sns.boxplot(x='furniture',y='total (R$)',data=df)
-sns.set_style('whitegrid')
-plt.title("Total (R$) x Furniture")
-```
-
-
-
-
-    Text(0.5, 1.0, 'Total (R$) x Furniture')
-
-
+    |Furniture    |Avarege Total Rent Value (R$)|    
+    |-------------|-----------------------------|    
+    |Not Furnished|                  4022.718672|
+    |Furnished    |                  5355.286684|
 
 
 ![png](Aluguel_Brasil_files/Aluguel_Brasil_69_1.png)
@@ -1556,39 +1057,16 @@ As seen in the graph above, properties that are furnished have on avarege a high
 ## 2.9 HOA 
 
 
-```python
-df['hoa (R$)'].describe()
-```
+HOA Value description:
 
-
-
-
-    count    9979.000000
-    mean      781.933961
-    std       860.884571
-    min         0.000000
-    25%       161.000000
-    50%       530.000000
-    75%      1100.000000
-    max      8000.000000
-    Name: hoa (R$), dtype: float64
-
-
-
-
-```python
-plt.figure(figsize = (10,6))
-sns.histplot(df['hoa (R$)'], kde = True)
-sns.set_style('whitegrid')
-plt.title("Distribution of HOA (R$)")
-```
-
-
-
-
-    Text(0.5, 1.0, 'Distribution of HOA (R$)')
-
-
+    |count|    9979.000000|
+    |mean |     781.933961|
+    |std  |     860.884571|
+    |min  |       0.000000|
+    |25%  |     161.000000|
+    |50%  |     530.000000|
+    |75%  |    1100.000000|
+    |max  |    8000.000000|
 
 
 ![png](Aluguel_Brasil_files/Aluguel_Brasil_73_1.png)
@@ -1596,41 +1074,16 @@ plt.title("Distribution of HOA (R$)")
 
 It seems like most properties in the dataframe have no HOA costs, this could be made of properties such as houses that are not inside condominiums, so they don'nt have HOA as an expense.
 
+HOA Value description with only properties that are not inside condominiums: 
 
-```python
-com_condiminio = df.drop(df[df['hoa (R$)']==0].index)
-com_condiminio.describe()['hoa (R$)']
-```
-
-
-
-
-    count    7766.000000
-    mean     1004.753927
-    std       853.482062
-    min         1.000000
-    25%       413.000000
-    50%       700.000000
-    75%      1319.250000
-    max      8000.000000
-    Name: hoa (R$), dtype: float64
-
-
-
-
-```python
-plt.figure(figsize = (10,6))
-sns.histplot(com_condiminio['hoa (R$)'],kde = True)
-sns.set_style('whitegrid')
-plt.title("Distribution of HOA (R$) without 0 values")
-```
-
-
-
-
-    Text(0.5, 1.0, 'Distribution of HOA (R$) without 0 values')
-
-
+    |count|    7766.000000|
+    |mean |    1004.753927|
+    |std  |     853.482062|
+    |min  |       1.000000|
+    |25%  |     413.000000|
+    |50%  |     700.000000|
+    |75%  |    1319.250000|
+    |max  |    8000.000000|
 
 
 ![png](Aluguel_Brasil_files/Aluguel_Brasil_76_1.png)
@@ -1640,64 +1093,31 @@ With only the properties that have to pay for the HOA, the value of HOA presents
 
 ## 2.10 Property Tax
 
+Property Tax value description:
 
-```python
-df['property tax (R$)'].describe()
-```
-
-
-
-
-    count    9979.000000
-    mean      248.946488
-    std       385.312237
-    min         0.000000
-    25%        34.000000
-    50%       109.000000
-    75%       300.000000
-    max      5404.000000
-    Name: property tax (R$), dtype: float64
+    |count|    9979.000000|
+    |mean |     248.946488|
+    |std  |     385.312237|
+    |min  |       0.000000|
+    |25%  |      34.000000|
+    |50%  |     109.000000|
+    |75%  |     300.000000|
+    |max  |    5404.000000|
 
 
-
-
-```python
-df.corr()['property tax (R$)'].sort_values(ascending=False)
-```
-
-
-
-
-    property tax (R$)      1.000000
-    total (R$)             0.656347
-    area                   0.594951
-    bathroom               0.579668
-    rent amount (R$)       0.509150
-    parking spaces         0.502540
-    fire insurance (R$)    0.497869
-    rooms                  0.478254
-    hoa (R$)               0.459748
-    animal                 0.083217
-    furniture              0.025079
-    Name: property tax (R$), dtype: float64
-
-
-
-
-```python
-plt.figure(figsize = (10,6))
-sns.regplot(x = df['property tax (R$)'],y = df['area'])
-sns.set_style('whitegrid')
-plt.title("Area x Property Tax (R$)")
-```
-
-
-
-
-    Text(0.5, 1.0, 'Area x Property Tax (R$)')
-
-
-
+    |Feature            |    Correlation Score|
+    |-------------------|------------|
+    |total (R$)         |    0.656347|
+    |area               |    0.594951|
+    |bathroom           |    0.579668|
+    |rent amount (R$)   |    0.509150|
+    |parking spaces     |    0.502540|
+    |fire insurance (R$)|    0.497869|
+    |rooms              |    0.478254|
+    |hoa (R$)           |    0.459748|
+    |animal             |    0.083217|
+    |furniture          |    0.025079|
+    
 
 ![png](Aluguel_Brasil_files/Aluguel_Brasil_81_1.png)
 
@@ -1705,27 +1125,6 @@ plt.title("Area x Property Tax (R$)")
 As we can see by the above table and graph, even though we have a high correlation score between the area value and the property tax, and also one could assume that the bigger the property the higher the tax of that property would be, there isn't a concrete linearity between the two features, with a few properties having a low area value but having higher taxes than avarege. This could be explained through the fact that the tax value of certain property is not only determined by the area value, having other aspects to it's formulation, such as location.
 
 
-```python
-df.groupby('city')[['property tax (R$)','total (R$)']].mean()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1767,7 +1166,6 @@ df.groupby('city')[['property tax (R$)','total (R$)']].mean()
     </tr>
   </tbody>
 </table>
-</div>
 
 
 
@@ -1775,63 +1173,31 @@ Once again São Paulo coming as of the most costly cities, having on avarege the
 
 ## 2.11 Fire Insurance
 
+Fire Insurance value description:
 
-```python
-df['fire insurance (R$)'].describe()
-```
+    |count|    9979.000000|
+    |mean |      44.716104|
+    |std  |      34.222927|
+    |min  |       3.000000|
+    |25%  |      20.000000|
+    |50%  |      33.000000|
+    |75%  |      58.000000|
+    |max  |     214.000000|
+    
 
-
-
-
-    count    9979.000000
-    mean       44.716104
-    std        34.222927
-    min         3.000000
-    25%        20.000000
-    50%        33.000000
-    75%        58.000000
-    max       214.000000
-    Name: fire insurance (R$), dtype: float64
-
-
-
-
-```python
-df.corr()['fire insurance (R$)'].sort_values(ascending=False)
-```
-
-
-
-
-    fire insurance (R$)    1.000000
-    rent amount (R$)       0.983966
-    total (R$)             0.907221
-    area                   0.685954
-    bathroom               0.652504
-    parking spaces         0.573454
-    rooms                  0.554351
-    property tax (R$)      0.497869
-    hoa (R$)               0.238023
-    furniture              0.149808
-    animal                 0.082174
-    Name: fire insurance (R$), dtype: float64
-
-
-
-
-```python
-plt.figure(figsize = (10,6))
-sns.regplot(x=df['fire insurance (R$)'],y=df['area'])
-sns.set_style('whitegrid')
-plt.title("Area x Fire Insurance (R$)")
-```
-
-
-
-
-    Text(0.5, 1.0, 'Area x Fire Insurance (R$)')
-
-
+    |Feature            |Correlation Score|
+    |-------------------|------------|
+    |fire insurance (R$)|    1.000000|
+    |rent amount (R$)   |    0.983966|
+    |total (R$)         |    0.907221|
+    |area               |    0.685954|
+    |bathroom           |    0.652504|
+    |parking spaces     |    0.573454|
+    |rooms              |    0.554351|
+    |property tax (R$)  |    0.497869|
+    |hoa (R$)           |    0.238023|
+    |furniture          |    0.149808|
+    |animal             |    0.082174|
 
 
 ![png](Aluguel_Brasil_files/Aluguel_Brasil_88_1.png)
@@ -1839,28 +1205,6 @@ plt.title("Area x Fire Insurance (R$)")
 
 As seen above by both table and graph, the same behaviour observed in the property tax feature seems to be happening with the fire insurance feature. With it having a high correlation score with the area, this could be explained due to the fact that the area of the property is used as a factor for the calculation of the fire insurance that is due to that property.
 
-
-```python
-df.groupby('city')[['fire insurance (R$)','total (R$)']].mean()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1902,20 +1246,10 @@ df.groupby('city')[['fire insurance (R$)','total (R$)']].mean()
     </tr>
   </tbody>
 </table>
-</div>
 
 
 
 This time we can't see that much of a difference between cities when it comes to fire insurance costs.
-
-## Getting dummies for city feature
-
-
-```python
-dummies = pd.get_dummies(df['city'],drop_first=True)
-df = df.drop('city',axis=1)
-df = pd.concat([df,dummies],axis=1)
-```
 
 # 3.0 Data Pre Processing
 
@@ -1935,7 +1269,7 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=101)
 ```
 
-# 4.0 Prediction Analasys with ML 
+# 3.0 Prediction Analasys with ML 
 
 In this section let's explore different ML algorithms and see witch performs bests, so that wee can make a decision of witch one will be our model.
 
@@ -1959,11 +1293,6 @@ model_lr.fit(X_train,y_train)
     LinearRegression()
 
 
-
-
-```python
-display(Markdown('The Linear Regression Model achieved a R² Score of {:.7f}' .format(r2_score(y_test,model_lr.predict(X_test)))))
-```
 
 
 The Linear Regression Model achieved a R² Score of 0.9999945
@@ -1991,13 +1320,6 @@ model_dtr.fit(X_train,y_train)
 
     DecisionTreeRegressor(max_depth=4, max_leaf_nodes=10, min_samples_split=5,
                           random_state=101)
-
-
-
-
-```python
-display(Markdown('The Decision Tree Model achieved a R² Score of {:.6f}' .format(r2_score(y_test,model_dtr.predict(X_test)))))
-```
 
 
 The Decision Tree Model achieved a R² Score of 0.927871
@@ -2059,13 +1381,6 @@ Grid_CV_dtr.fit(X_train,y_train)
 
 
 
-
-```python
-display(Markdown('After tuning the Decision Tree model achieved a R² Score of {:.6f}' .format(Grid_CV_dtr.best_score_)))
-display(Markdown('This score was achieved with the following Hyperparameters: {}' .format(Grid_CV_dtr.best_params_)))
-```
-
-
 After tuning the Decision Tree model achieved a R² Score of 0.982638
 
 
@@ -2093,12 +1408,6 @@ model_rfr.fit(X_train,y_train)
 
 
 
-
-```python
-display(Markdown('The Random Forest Model achieved a R² Score of {:.6f}' .format(r2_score(y_test,model_rfr.predict(X_test)))))
-```
-
-
 The Random Forest Model achieved a R² Score of 0.996090
 
 
@@ -2120,12 +1429,6 @@ model_svm.fit(X_train,y_train)
 
     SVR()
 
-
-
-
-```python
-display(Markdown('The SVM Model achieved a R² Score of {:.6f}' .format(r2_score(y_test,model_svm.predict(X_test)))))
-```
 
 
 The SVM Model achieved a R² Score of 0.442473
@@ -2151,12 +1454,6 @@ model_ridge.fit(X_train,y_train)
 
 
 
-
-```python
-display(Markdown('The Ridge Regression Model achieved a R² Score of {:.7f}' .format(r2_score(y_test,model_ridge.predict(X_test)))))
-```
-
-
 The Ridge Regression Model achieved a R² Score of 0.9999945
 
 
@@ -2180,12 +1477,6 @@ model_lasso.fit(X_train,y_train)
 
 
 
-
-```python
-display(Markdown('The Lasso Regression Model achieved a R² Score of {:.7f}' .format(r2_score(y_test,model_lasso.predict(X_test)))))
-```
-
-
 The Lasso Regression Model achieved a R² Score of 0.9999945
 
 
@@ -2204,23 +1495,6 @@ models = pd.DataFrame(data={'R² Score': R2_Scores}, index= Models_Names)
 models
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2259,48 +1533,13 @@ models
     </tr>
   </tbody>
 </table>
-</div>
 
 
 
 After building the models above we can see that the Linear, Ridge and Lasso Regression Models achieved a very high R² Score. For the sake of this study we will be choosing the Ridge Regression model since it is able to adress some of the problems of Ordinary Least Squares.
 
 
-```python
-plt.figure(figsize=(10,6))
-sns.kdeplot(y_test,color ="r",label ="Actual Value")
-sns.kdeplot(model_ridge.predict(X_test),color ="b", label = "Preicted Value")
-plt.legend()
-```
-
-
-
-
-    <matplotlib.legend.Legend at 0x2c772e9a970>
-
-
-
-
 ![png](Aluguel_Brasil_files/Aluguel_Brasil_134_1.png)
-
-
-## 4.8 Saving Model
-
-
-```python
-import joblib
-```
-
-
-```python
-joblib.dump(model_ridge,"Ridge_Model")
-```
-
-
-
-
-    ['Ridge_Model']
-
 
 
 # Conclusion
