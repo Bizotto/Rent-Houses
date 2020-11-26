@@ -18,7 +18,7 @@ The data for carrying out this project was taken from: https://www.kaggle.com/ru
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>city</th>
+      <th>City</th>
       <th>area</th>
       <th>rooms</th>
       <th>bathroom</th>
@@ -174,7 +174,7 @@ There are no missing values
   </thead>
   <tbody>
     <tr>
-      <th>count</th>
+      <th>Count</th>
       <td>10692.000000</td>
       <td>10692.000000</td>
       <td>10692.000000</td>
@@ -284,7 +284,7 @@ Large presence of outliers, attempt to remove them with the assistence of IQR-Sc
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>city</th>
+      <th>City</th>
       <th>area</th>
       <th>rooms</th>
       <th>bathroom</th>
@@ -489,8 +489,11 @@ Checking new distribution, after removing outliers
 ![png](Aluguel_Brasil_files/Aluguel_Brasil_23_1.png)
 
 From the correlation graph and the total value distribution, we can answer some questions:
+
 • The total value of rent appears to have an asymmetric distribution to the right, with most properties having a total value of R$ 2000,00.
+
 • The rent, fire insurance, tax and HOA values appear to be highly correlated with the total amount as expected.
+
 • It can also be noted a certain correlation between the number of bedrooms and bathrooms with the total value of the property, but a deeper analysis will be carried out later.
 
 ## 2.2 City
@@ -498,8 +501,8 @@ From the correlation graph and the total value distribution, we can answer some 
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
-      <th>count</th>
+      <th>City</th>
+      <th>Count</th>
       <th>mean</th>
       <th>std</th>
       <th>min</th>
@@ -507,17 +510,6 @@ From the correlation graph and the total value distribution, we can answer some 
       <th>50%</th>
       <th>75%</th>
       <th>max</th>
-    </tr>
-    <tr>
-      <th>city</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -610,7 +602,7 @@ Area Value description:
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>city</th>
+      <th>City</th>
       <th>area</th>
       <th>rooms</th>
       <th>bathroom</th>
@@ -773,7 +765,7 @@ The features seem to have some kind of correlation, but nothing concrect, or tot
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>count</th>
+      <th>Count</th>
       <th>mean</th>
       <th>std</th>
       <th>min</th>
@@ -823,14 +815,9 @@ As expected we can see that the higher number of rooms/bathrooms the higher will
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
+      <th>City</th>
       <th>parking spaces</th>
       <th>total (R$)</th>
-    </tr>
-    <tr>
-      <th>city</th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -879,7 +866,6 @@ Firstly let's change this feature in a way that properties that accept pets are 
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
       <th>City</th>
       <th>Allow Pets</th>
       <th>Doesn't Allow Pets</th>
@@ -932,7 +918,6 @@ This feature we will do the same as what we did the animal/pets feature. For pro
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
       <th>City</th>
       <th>Furnished</th>
       <th>Not Furnished</th>
@@ -1055,14 +1040,9 @@ As we can see by the above table and graph, even though we have a high correlati
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
+      <th>City</th>
       <th>property tax (R$)</th>
       <th>total (R$)</th>
-    </tr>
-    <tr>
-      <th>city</th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -1132,14 +1112,9 @@ As seen above by both table and graph, the same behaviour observed in the proper
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
+      <th>City</th>
       <th>fire insurance (R$)</th>
       <th>total (R$)</th>
-    </tr>
-    <tr>
-      <th>city</th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
