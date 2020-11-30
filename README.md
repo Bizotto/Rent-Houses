@@ -16,28 +16,29 @@ Beyond that, this study seeks to answer some hypotheses such as:
 
 The data for carrying out this project was taken from: https://www.kaggle.com/rubenssjr/brasilian-houses-to-rent?select=houses_to_rent_v2.csv
 
+- [Business Proposal](#business-proposal)
 - [Dataset](#dataset)
-- [2.0 Exploratory Data Analysis](#eda)
-  * [2.1 General Dataset Analysis](#gda)
-  * [2.2 City](#city)
-  * [2.3 Area](#area)
-  * [2.4 Bathrooms and Rooms](#bath-and-room)
-  * [2.5 Parking Spaces](#parking)
-  * [2.6 Floor](#floor)
-  * [2.7 Animals/Pets](#pets)
-  * [2.8 Furniture](#furniture)
-  * [2.9 HOA](#hoa)
-  * [2.10 Property Tax](#tax)
-  * [2.11 Fire Insurance](#fire)
-- [3.0 Data Pre Processing](#dpp)
-- [4.0 Prediction Analasys with ML](#ml)
-  * [4.1 Linear Regression](#model-lr)
-  * [4.2 Decision Tree Regression](#model-dtr)
-  * [4.3 Random Forest Regression](#model-rfr)
-  * [4.4 SVM Regression](#model-svm)
-  * [4.5 Ridge Regression](#model-ridge)
-  * [4.6 Lasso Regression](#model-lasso)
-  * [4.7 Model Evaluation](#model-evaluation)
+- [Exploratory Data Analysis](#exploratory-data-analysis)
+  - [General Dataset Analysis](#general-dataset-analysis)
+  - [City](#city)
+  - [Area](#area)
+  - [Bathrooms and Rooms](#bathrooms-and-rooms)
+  - [Parking Spaces](#parking-spaces)
+  - [Floor](#floor)
+  - [Animals/Pets](#animalspets)
+  - [Furniture](#furniture)
+  - [HOA](#hoa)
+  - [Property Tax](#property-tax)
+  - [Fire Insurance](#fire-insurance)
+- [Data Pre Processing](#data-pre-processing)
+- [Prediction Analasys with ML](#prediction-analasys-with-ml)
+  - [Linear Regression](#linear-regression)
+  - [Decision Tree Regression](#decision-tree-regression)
+  - [Random Forest Regression](#random-forest-regression)
+  - [SVM Regression](#svm-regression)
+  - [Ridge Regression](#ridge-regression)
+  - [Lasso Regression](#lasso-regression)
+  - [Model Evaluation](#model-evaluation)
 - [Conclusion](#conclusion)
 
 # Dataset
@@ -145,9 +146,9 @@ The data for carrying out this project was taken from: https://www.kaggle.com/ru
   </tbody>
 </table>
 
-# 2.0 Exploratory Data Analysis
+# Exploratory Data Analysis
 
-## 2.1 General Dataset Analysis
+## General Dataset Analysis
 
 Checking for missing values
 
@@ -532,7 +533,7 @@ From the correlation graph and the total value distribution, we can answer some 
 
 • It can also be noted a certain correlation between the number of bedrooms and bathrooms with the total value of the property, but a deeper analysis will be carried out later.
 
-## 2.2 City
+## City
 
 <table border="1" class="dataframe">
   <thead>
@@ -619,7 +620,7 @@ With this data, we can present a few points:
 
 • Although Campinas and São Paulo are in the same state, there is a big difference in rent values ​​between the two cities.
 
-## 2.3 Area
+## Area
 
 Area Value description:
 
@@ -807,7 +808,7 @@ But what is the correlation between the area and the total value?
 
 The features seem to have some kind of correlation, but nothing concrect, or totaly linear.
 
-## 2.4 Bathrooms and Rooms
+## Bathrooms and Rooms
 
 <table border="1" class="dataframe">
   <thead>
@@ -860,7 +861,7 @@ We are able to see that on avarege most properties have between 2 and 3 rooms an
 
 As expected we can see that the higher number of rooms/bathrooms the higher will be the total rent.
 
-## 2.5 Parking Spaces
+## Parking Spaces
 
 <table border="1" class="dataframe">
   <thead>
@@ -907,11 +908,11 @@ It seems like most properties have on average between one and two parking spaces
 
 Also as expected, we can see that higher the number of parking spaces the higher will be the total value of rent.
 
-## 2.6 Floor
+## Floor
 
 Due to the fact that doesn't seem to be any correlation between the floor in witch the property is located and the total rent value, and also the fact that this feature doesn't seem to have any importance for this analysis, this feature will be removed from the DataFrame.
 
-## 2.7 Animals/Pets
+## Animals/Pets
 
 Firstly let's change this feature in a way that properties that accept pets are labeled with a value of 1 and properties that don't accept pets will be labeled with a value of 0.
 
@@ -965,7 +966,7 @@ As we can see above, in all cities we have in the dataframe most of the properti
 
 As we can see the total value of rent seem to be higher in properties that allow pets, altought the difference of this value is not that big.
 
-## 2.8 Furniture
+## Furniture
 
 This feature we will do the same as what we did the animal/pets feature. For properties that are furnished we will label them with a 1 value and for properties that are not furnished we will label them with a 0 value.
 
@@ -1025,7 +1026,7 @@ As we can see in all cities most properties for rent are not furnished, with Por
 
 As seen in the graph above, properties that are furnished have on avarege a higher total rent price, this is to be expected with all the costs necessary for furnishing a house/apartment.
 
-## 2.9 HOA
+## HOA
 
 HOA Value description:
 
@@ -1065,7 +1066,7 @@ HOA Value description with only properties that are not inside condominiums:
 
 With only the properties that have to pay for the HOA, the value of HOA presents with a assimetric distribution to the right with most properties having around 700 to 900 reais of HOA costs.
 
-## 2.10 Property Tax
+## Property Tax
 
 Property Tax value description:
 
@@ -1138,7 +1139,7 @@ As we can see by the above table and graph, even though we have a high correlati
 
 Once again São Paulo coming as of the most costly cities, having on avarege the highest property tax of all the cities in this study.
 
-## 2.11 Fire Insurance
+## Fire Insurance
 
 Fire Insurance value description:
 
@@ -1212,7 +1213,7 @@ As seen above by both table and graph, the same behaviour observed in the proper
 
 This time we can't see that much of a difference between cities when it comes to fire insurance costs.
 
-# 3.0 Data Pre Processing
+# Data Pre Processing
 
 ```python
 X = df.drop('total (R$)',axis=1)
@@ -1227,11 +1228,11 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=101)
 ```
 
-# 4.0 Prediction Analasys with ML
+# Prediction Analasys with ML
 
 In this section let's explore different ML algorithms and see witch performs bests, so that wee can make a decision of witch one will be our model.
 
-## 4.1 Linear Regression
+## Linear Regression
 
 ```python
 from sklearn.linear_model import LinearRegression
@@ -1243,11 +1244,9 @@ model_lr = LinearRegression()
 model_lr.fit(X_train,y_train)
 ```
 
-LinearRegression()
-
 The Linear Regression Model achieved a R² Score of 0.9999945
 
-## 4.2 Decision Tree Regression
+## Decision Tree Regression
 
 ```python
 from sklearn.tree import DecisionTreeRegressor
@@ -1262,19 +1261,8 @@ model_dtr = DecisionTreeRegressor(max_depth=4,
 model_dtr.fit(X_train,y_train)
 ```
 
-DecisionTreeRegressor(max_depth=4, max_leaf_nodes=10, min_samples_split=5, random_state=101)
-
 The Decision Tree Model achieved a R² Score of 0.927871
 
-```python
-fig, ax = plt.subplots(figsize=(24,12))
-out = tree.plot_tree(model_dtr,filled=True)
-for o in out:
-    arrow = o.arrow_patch
-    if arrow is not None:
-        arrow.set_edgecolor('black')
-        arrow.set_linewidth(1)
-```
 <p align="center">
   <img width="auto" height="auto" src="Aluguel_Brasil_files/Aluguel_Brasil_108_0.png">
 </p>
@@ -1302,20 +1290,11 @@ Grid_CV_dtr = GridSearchCV(model_dtr, param_grid, cv=5)
 Grid_CV_dtr.fit(X_train,y_train)
 ```
 
-GridSearchCV(cv=5,
-             estimator=DecisionTreeRegressor(max_depth=4, max_leaf_nodes=10,
-                                             min_samples_split=5,
-                                             random_state=101),
-             param_grid={'criterion': ['mse', 'mae'], 'max_depth': [2, 6, 8],
-                         'max_leaf_nodes': [5, 20, 100],
-                         'min_samples_leaf': [20, 40, 100],
-                         'min_samples_split': [10, 20, 40]})
-
 After tuning the Decision Tree model achieved a R² Score of 0.982638
 
 This score was achieved with the following Hyperparameters: {'criterion': 'mse', 'max_depth': 8, 'max_leaf_nodes': 100, 'min_samples_leaf': 20, 'min_samples_split': 10}
 
-## 4.3 Random Forest Regression
+## Random Forest Regression
 
 ```python
 from sklearn.ensemble import RandomForestRegressor
@@ -1326,11 +1305,9 @@ model_rfr = RandomForestRegressor(n_estimators = 10, random_state=101)
 model_rfr.fit(X_train,y_train)
 ```
 
-RandomForestRegressor(n_estimators=10, random_state=101)
-
 The Random Forest Model achieved a R² Score of 0.996090
 
-## 4.4 SVM Regression
+## SVM Regression
 
 ```python
 from sklearn.svm import SVR
@@ -1341,11 +1318,9 @@ model_svm = SVR()
 model_svm.fit(X_train,y_train)
 ```
 
-SVR()
-
 The SVM Model achieved a R² Score of 0.442473
 
-## 4.5 Ridge Regression
+## Ridge Regression
 
 ```python
 from sklearn.linear_model import Ridge
@@ -1356,11 +1331,9 @@ model_ridge = Ridge()
 model_ridge.fit(X_train,y_train)
 ```
 
-Ridge()
-
 The Ridge Regression Model achieved a R² Score of 0.9999945
 
-## 4.6 Lasso Regression
+## Lasso Regression
 
 ```python
 from sklearn.linear_model import Lasso
@@ -1371,11 +1344,9 @@ model_lasso = Lasso()
 model_lasso.fit(X_train,y_train)
 ```
 
-Lasso()
-
 The Lasso Regression Model achieved a R² Score of 0.9999945
 
-## 4.7 Model Evaluation
+## Model Evaluation
 
 ```python
 Models_Names = ['Linear Regression','Decision Tree Regression','Optimized Decision Tree','Random Forest Regression',
@@ -1386,7 +1357,6 @@ R2_Scores = [r2_score(y_test,model_lr.predict(X_test)),r2_score(y_test,model_dtr
             r2_score(y_test,model_ridge.predict(X_test)),r2_score(y_test,model_lasso.predict(X_test))]
 
 models = pd.DataFrame(data={'R² Score': R2_Scores}, index= Models_Names)
-models
 ```
 
 <table border="1" class="dataframe">
