@@ -16,7 +16,7 @@ Beyond that, this study seeks to answer some hypotheses such as:
 
 The data for carrying out this project was taken from: https://www.kaggle.com/rubenssjr/brasilian-houses-to-rent?select=houses_to_rent_v2.csv
 
-- [1.0 Dataset](#dataset)
+- [1.0 Dataset](#1.0-dataset)
 - [2.0 Exploratory Data Analysis](#eda)
   * [2.1 General Dataset Analysis](#gda)
   * [2.2 City](#city)
