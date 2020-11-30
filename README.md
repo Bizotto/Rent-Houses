@@ -9,7 +9,9 @@ Build a model to predict the cost of renting a certain property, such a model ca
 Beyond that, this study seeks to answer some hypotheses such as:
 
 • What is the distribution of the total rent for the property?
+
 • What is the relationship between the values of rent and the location of the property?
+
 • What is the relationship, if any, between features and property values?
 
 The data for carrying out this project was taken from: https://www.kaggle.com/rubenssjr/brasilian-houses-to-rent?select=houses_to_rent_v2.csv
@@ -277,11 +279,11 @@ There are no missing values
 Checking total value distribution as well as outliers.
 
 <p align="center">
-  <img width="391" height="385" src="Aluguel_Brasil_files/Aluguel_Brasil_14_1.png">
+  <img width="auto" height="auto" src="Aluguel_Brasil_files/Aluguel_Brasil_14_1.png">
 </p>
 
 <p align="center">
-  <img width="349" height="370" src="Aluguel_Brasil_files/Aluguel_Brasil_14_1.png">
+  <img width="auto" height="auto" src="Aluguel_Brasil_files/Aluguel_Brasil_15_0.png">
 </p>
 
 Large presence of outliers, attempt to remove them with the assistence of IQR-Score.
@@ -490,9 +492,13 @@ After removing the outliers, the dataset showed the removal of 1096 values ​�
 
 Checking new distribution, after removing outliers
 
-![png](Aluguel_Brasil_files/Aluguel_Brasil_22_1.png)
+<p align="center">
+  <img width="auto" height="auto" src="Aluguel_Brasil_files/Aluguel_Brasil_22_1.png">
+</p>
 
-![png](Aluguel_Brasil_files/Aluguel_Brasil_23_1.png)
+<p align="center">
+  <img width="auto" height="auto" src="Aluguel_Brasil_files/Aluguel_Brasil_23_1.png">
+</p>
 
 From the correlation graph and the total value distribution, we can answer some questions:
 
@@ -577,12 +583,16 @@ From the correlation graph and the total value distribution, we can answer some 
   </tbody>
 </table>
 
-![png](Aluguel_Brasil_files/Aluguel_Brasil_27_0.png)
+<p align="center">
+  <img width="auto" height="auto" src="Aluguel_Brasil_files/Aluguel_Brasil_27_0.png">
+</p>
 
 With this data, we can present a few points:
 
 • Most properties for rent are in São Paulo with approximately 5400 properties.
+
 • São Paulo also has a higher average of rental values, which can be caused by factors we will explore later.
+
 • Although Campinas and São Paulo are in the same state, there is a big difference in rent values ​​between the two cities.
 
 ## 2.3 Area
@@ -600,9 +610,13 @@ Area Value description:
 | 75%   | 160.000000   |
 | max   | 46335.000000 |
 
-![png](Aluguel_Brasil_files/Aluguel_Brasil_31_1.png)
+<p align="center">
+  <img width="auto" height="auto" src="Aluguel_Brasil_files/Aluguel_Brasil_31_1.png">
+</p>
 
-![png](Aluguel_Brasil_files/Aluguel_Brasil_32_0.png)
+<p align="center">
+  <img width="auto" height="auto" src="Aluguel_Brasil_files/Aluguel_Brasil_32_0.png">
+</p>
 
 <table border="1" class="dataframe">
   <thead>
@@ -741,7 +755,9 @@ Area Value description:
 
 It is possible to notice the presence of some outliers in the area feature, choosing to remove them to improve the analysis.
 
-![png](Aluguel_Brasil_files/Aluguel_Brasil_36_1.png)
+<p align="center">
+  <img width="auto" height="auto" src="Aluguel_Brasil_files/Aluguel_Brasil_36_1.png">
+</p>
 
 After the removal of the outliers the value of area presents an assimetric distribution to the right, with most of the properties having an total area of 85 m².
 
@@ -761,7 +777,9 @@ Here we can see the obvious correlation between the number of rooms and bathroom
 
 But what is the correlation between the area and the total value?
 
-![png](Aluguel_Brasil_files/Aluguel_Brasil_40_1.png)
+<p align="center">
+  <img width="auto" height="auto" src="Aluguel_Brasil_files/Aluguel_Brasil_40_1.png">
+</p>
 
 The features seem to have some kind of correlation, but nothing concrect, or totaly linear.
 
@@ -812,7 +830,9 @@ The features seem to have some kind of correlation, but nothing concrect, or tot
 
 We are able to see that on avarege most properties have between 2 and 3 rooms and between 1 and 2 bathrooms.
 
-![png](Aluguel_Brasil_files/Aluguel_Brasil_45_1.png)
+<p align="center">
+  <img width="auto" height="auto" src="Aluguel_Brasil_files/Aluguel_Brasil_45_1.png">
+</p>
 
 As expected we can see that the higher number of rooms/bathrooms the higher will be the total rent.
 
@@ -857,7 +877,9 @@ As expected we can see that the higher number of rooms/bathrooms the higher will
 
 It seems like most properties have on average between one and two parking spaces, with São Paulo and Belo Horizonte coming ahead with the  higher averages, with 1.67 and 1.83 parking spaces respectively. It's also something to notice that even though most properties in Rio de Janeiro have on average only 0.69 parking spaces, they have the third highest total value of rent.
 
-![png](Aluguel_Brasil_files/Aluguel_Brasil_50_1.png)
+<p align="center">
+  <img width="auto" height="auto" src="Aluguel_Brasil_files/Aluguel_Brasil_50_1.png">
+</p>
 
 Also as expected, we can see that higher the number of parking spaces the higher will be the total value of rent.
 
@@ -913,7 +935,9 @@ As we can see above, in all cities we have in the dataframe most of the properti
 | Don't Allow | 3927.473942                   |
 | Allow       | 4456.649341                   |
 
-![png](Aluguel_Brasil_files/Aluguel_Brasil_61_1.png)
+<p align="center">
+  <img width="auto" height="auto" src="Aluguel_Brasil_files/Aluguel_Brasil_61_1.png">
+</p>
 
 As we can see the total value of rent seem to be higher in properties that allow pets, altought the difference of this value is not that big.
 
@@ -971,7 +995,9 @@ As we can see in all cities most properties for rent are not furnished, with Por
 | Not Furnished | 4022.718672                   |
 | Furnished     | 5355.286684                   |
 
-![png](Aluguel_Brasil_files/Aluguel_Brasil_69_1.png)
+<p align="center">
+  <img width="auto" height="auto" src="Aluguel_Brasil_files/Aluguel_Brasil_69_1.png">
+</p>
 
 As seen in the graph above, properties that are furnished have on avarege a higher total rent price, this is to be expected with all the costs necessary for furnishing a house/apartment.
 
@@ -990,7 +1016,9 @@ HOA Value description:
 | 75 %  | 1100.000000 |
 | max   | 8000.000000 |
 
-![png](Aluguel_Brasil_files/Aluguel_Brasil_73_1.png)
+<p align="center">
+  <img width="auto" height="auto" src="Aluguel_Brasil_files/Aluguel_Brasil_73_1.png">
+</p>
 
 It seems like most properties in the dataframe have no HOA costs, this could be made of properties such as houses that are not inside condominiums, so they don'nt have HOA as an expense.
 
@@ -1007,7 +1035,9 @@ HOA Value description with only properties that are not inside condominiums:
 | 75%   | 1319.250000 |
 | max   | 8000.000000 |
 
-![png](Aluguel_Brasil_files/Aluguel_Brasil_76_1.png)
+<p align="center">
+  <img width="auto" height="auto" src="Aluguel_Brasil_files/Aluguel_Brasil_76_1.png">
+</p>
 
 With only the properties that have to pay for the HOA, the value of HOA presents with a assimetric distribution to the right with most properties having around 700 to 900 reais of HOA costs.
 
@@ -1039,7 +1069,9 @@ Property Tax value description:
 | animal              | 0.083217          |
 | furniture           | 0.025079          |
 
-![png](Aluguel_Brasil_files/Aluguel_Brasil_81_1.png)
+<p align="center">
+  <img width="auto" height="auto" src="Aluguel_Brasil_files/Aluguel_Brasil_81_1.png">
+</p>
 
 As we can see by the above table and graph, even though we have a high correlation score between the area value and the property tax, and also one could assume that the bigger the property the higher the tax of that property would be, there isn't a concrete linearity between the two features, with a few properties having a low area value but having higher taxes than avarege. This could be explained through the fact that the tax value of certain property is not only determined by the area value, having other aspects to it's formulation, such as location.
 
@@ -1111,7 +1143,9 @@ Fire Insurance value description:
 | furniture           | 0.149808          |
 | animal              | 0.082174          |
 
-![png](Aluguel_Brasil_files/Aluguel_Brasil_88_1.png)
+<p align="center">
+  <img width="auto" height="auto" src="Aluguel_Brasil_files/Aluguel_Brasil_88_1.png">
+</p>
 
 As seen above by both table and graph, the same behaviour observed in the property tax feature seems to be happening with the fire insurance feature. With it having a high correlation score with the area, this could be explained due to the fact that the area of the property is used as a factor for the calculation of the fire insurance that is due to that property.
 
@@ -1217,8 +1251,9 @@ for o in out:
         arrow.set_edgecolor('black')
         arrow.set_linewidth(1)
 ```
-
-![png](Aluguel_Brasil_files/Aluguel_Brasil_108_0.png)
+<p align="center">
+  <img width="auto" height="auto" src="Aluguel_Brasil_files/Aluguel_Brasil_108_0.png">
+</p>
 
 Using GridSearchCV for hyperparameters tuning.
 
@@ -1371,7 +1406,9 @@ models
 
 After building the models above we can see that the Linear, Ridge and Lasso Regression Models achieved a very high R² Score. For the sake of this study we will be choosing the Ridge Regression model since it is able to adress some of the problems of Ordinary Least Squares.
 
-![png](Aluguel_Brasil_files/Aluguel_Brasil_134_1.png)
+<p align="center">
+  <img width="auto" height="auto" src="Aluguel_Brasil_files/Aluguel_Brasil_134_1.png">
+</p>
 
 # Conclusion
 
