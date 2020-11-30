@@ -1,7 +1,7 @@
 # Business Proposal
 
 <p align="center">
-  <img width="460" height="300" src="aluga-se.png">
+  <img width="auto" height="auto" src="aluga-se.png">
 </p>
 
 Build a model to predict the cost of renting a certain property, such a model can be of extreme help to the client so that he can create new business strategies and have a better view of the market, depending on the region or period.
@@ -21,18 +21,18 @@ The data for carrying out this project was taken from: https://www.kaggle.com/ru
     <tr style="text-align: right;">
       <th></th>
       <th>City</th>
-      <th>area</th>
-      <th>rooms</th>
-      <th>bathroom</th>
-      <th>parking spaces</th>
-      <th>floor</th>
-      <th>animal</th>
-      <th>furniture</th>
+      <th>Area</th>
+      <th>Rooms</th>
+      <th>Bathroom</th>
+      <th>Parking spaces</th>
+      <th>Floor</th>
+      <th>Animal</th>
+      <th>Furniture</th>
       <th>hoa (R$)</th>
-      <th>rent amount (R$)</th>
-      <th>property tax (R$)</th>
-      <th>fire insurance (R$)</th>
-      <th>total (R$)</th>
+      <th>Rent amount (R$)</th>
+      <th>Property tax (R$)</th>
+      <th>Fire insurance (R$)</th>
+      <th>Total (R$)</th>
     </tr>
   </thead>
   <tbody>
@@ -44,8 +44,8 @@ The data for carrying out this project was taken from: https://www.kaggle.com/ru
       <td>1</td>
       <td>1</td>
       <td>7</td>
-      <td>acept</td>
-      <td>furnished</td>
+      <td>Acept</td>
+      <td>Furnished</td>
       <td>2065</td>
       <td>3300</td>
       <td>211</td>
@@ -60,7 +60,7 @@ The data for carrying out this project was taken from: https://www.kaggle.com/ru
       <td>4</td>
       <td>0</td>
       <td>20</td>
-      <td>acept</td>
+      <td>Acept</td>
       <td>not furnished</td>
       <td>1200</td>
       <td>4960</td>
@@ -76,7 +76,7 @@ The data for carrying out this project was taken from: https://www.kaggle.com/ru
       <td>1</td>
       <td>1</td>
       <td>6</td>
-      <td>acept</td>
+      <td>Acept</td>
       <td>not furnished</td>
       <td>1000</td>
       <td>2800</td>
@@ -92,7 +92,7 @@ The data for carrying out this project was taken from: https://www.kaggle.com/ru
       <td>1</td>
       <td>0</td>
       <td>2</td>
-      <td>acept</td>
+      <td>Acept</td>
       <td>not furnished</td>
       <td>270</td>
       <td>1112</td>
@@ -163,15 +163,15 @@ There are no missing values
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>area</th>
-      <th>rooms</th>
-      <th>bathroom</th>
-      <th>parking spaces</th>
+      <th>Area</th>
+      <th>Rooms</th>
+      <th>Bathroom</th>
+      <th>Parking spaces</th>
       <th>hoa (R$)</th>
-      <th>rent amount (R$)</th>
-      <th>property tax (R$)</th>
-      <th>fire insurance (R$)</th>
-      <th>total (R$)</th>
+      <th>Rent amount (R$)</th>
+      <th>Property tax (R$)</th>
+      <th>Fire insurance (R$)</th>
+      <th>Total (R$)</th>
     </tr>
   </thead>
   <tbody>
@@ -188,7 +188,7 @@ There are no missing values
       <td>1.069200e+04</td>
     </tr>
     <tr>
-      <th>mean</th>
+      <th>Mean</th>
       <td>149.217920</td>
       <td>2.506079</td>
       <td>2.236813</td>
@@ -212,7 +212,7 @@ There are no missing values
       <td>1.648473e+04</td>
     </tr>
     <tr>
-      <th>min</th>
+      <th>Min</th>
       <td>11.000000</td>
       <td>1.000000</td>
       <td>1.000000</td>
@@ -260,7 +260,7 @@ There are no missing values
       <td>6.768000e+03</td>
     </tr>
     <tr>
-      <th>max</th>
+      <th>Max</th>
       <td>46335.000000</td>
       <td>13.000000</td>
       <td>10.000000</td>
@@ -276,9 +276,13 @@ There are no missing values
 
 Checking total value distribution as well as outliers.
 
-![png](Aluguel_Brasil_files/Aluguel_Brasil_14_1.png)
+<p align="center">
+  <img width="391" height="385" src="Aluguel_Brasil_files/Aluguel_Brasil_14_1.png">
+</p>
 
-![png](Aluguel_Brasil_files/Aluguel_Brasil_15_0.png)
+<p align="center">
+  <img width="349" height="370" src="Aluguel_Brasil_files/Aluguel_Brasil_14_1.png">
+</p>
 
 Large presence of outliers, attempt to remove them with the assistence of IQR-Score.
 
@@ -287,18 +291,18 @@ Large presence of outliers, attempt to remove them with the assistence of IQR-Sc
     <tr style="text-align: right;">
       <th></th>
       <th>City</th>
-      <th>area</th>
-      <th>rooms</th>
-      <th>bathroom</th>
-      <th>parking spaces</th>
-      <th>floor</th>
-      <th>animal</th>
-      <th>furniture</th>
+      <th>Area</th>
+      <th>Rooms</th>
+      <th>Bathroom</th>
+      <th>Parking spaces</th>
+      <th>Floor</th>
+      <th>Animal</th>
+      <th>Furniture</th>
       <th>hoa (R$)</th>
-      <th>rent amount (R$)</th>
-      <th>property tax (R$)</th>
-      <th>fire insurance (R$)</th>
-      <th>total (R$)</th>
+      <th>Rent amount (R$)</th>
+      <th>Property tax (R$)</th>
+      <th>Fire insurance (R$)</th>
+      <th>Total (R$)</th>
     </tr>
   </thead>
   <tbody>
@@ -310,8 +314,8 @@ Large presence of outliers, attempt to remove them with the assistence of IQR-Sc
       <td>1</td>
       <td>1</td>
       <td>7</td>
-      <td>acept</td>
-      <td>furnished</td>
+      <td>Acept</td>
+      <td>Furnished</td>
       <td>2065</td>
       <td>3300</td>
       <td>211</td>
@@ -326,7 +330,7 @@ Large presence of outliers, attempt to remove them with the assistence of IQR-Sc
       <td>4</td>
       <td>0</td>
       <td>20</td>
-      <td>acept</td>
+      <td>Acept</td>
       <td>not furnished</td>
       <td>1200</td>
       <td>4960</td>
@@ -342,7 +346,7 @@ Large presence of outliers, attempt to remove them with the assistence of IQR-Sc
       <td>1</td>
       <td>1</td>
       <td>6</td>
-      <td>acept</td>
+      <td>Acept</td>
       <td>not furnished</td>
       <td>1000</td>
       <td>2800</td>
@@ -358,7 +362,7 @@ Large presence of outliers, attempt to remove them with the assistence of IQR-Sc
       <td>1</td>
       <td>0</td>
       <td>2</td>
-      <td>acept</td>
+      <td>Acept</td>
       <td>not furnished</td>
       <td>270</td>
       <td>1112</td>
@@ -406,7 +410,7 @@ Large presence of outliers, attempt to remove them with the assistence of IQR-Sc
       <td>2</td>
       <td>2</td>
       <td>11</td>
-      <td>acept</td>
+      <td>Acept</td>
       <td>not furnished</td>
       <td>888</td>
       <td>7521</td>
@@ -423,7 +427,7 @@ Large presence of outliers, attempt to remove them with the assistence of IQR-Sc
       <td>2</td>
       <td>8</td>
       <td>not acept</td>
-      <td>furnished</td>
+      <td>Furnished</td>
       <td>0</td>
       <td>13500</td>
       <td>0</td>
@@ -439,7 +443,7 @@ Large presence of outliers, attempt to remove them with the assistence of IQR-Sc
       <td>1</td>
       <td>5</td>
       <td>not acept</td>
-      <td>furnished</td>
+      <td>Furnished</td>
       <td>402</td>
       <td>1478</td>
       <td>24</td>
@@ -455,7 +459,7 @@ Large presence of outliers, attempt to remove them with the assistence of IQR-Sc
       <td>0</td>
       <td>8</td>
       <td>not acept</td>
-      <td>furnished</td>
+      <td>Furnished</td>
       <td>980</td>
       <td>6000</td>
       <td>332</td>
@@ -470,7 +474,7 @@ Large presence of outliers, attempt to remove them with the assistence of IQR-Sc
       <td>1</td>
       <td>0</td>
       <td>-</td>
-      <td>acept</td>
+      <td>Acept</td>
       <td>not furnished</td>
       <td>0</td>
       <td>1400</td>
@@ -505,13 +509,13 @@ From the correlation graph and the total value distribution, we can answer some 
     <tr style="text-align: right;">
       <th>City</th>
       <th>Count</th>
-      <th>mean</th>
+      <th>Mean</th>
       <th>std</th>
-      <th>min</th>
+      <th>Min</th>
       <th>25%</th>
       <th>50%</th>
       <th>75%</th>
-      <th>max</th>
+      <th>Max</th>
     </tr>
   </thead>
   <tbody>
@@ -605,18 +609,18 @@ Area Value description:
     <tr style="text-align: right;">
       <th></th>
       <th>City</th>
-      <th>area</th>
-      <th>rooms</th>
-      <th>bathroom</th>
-      <th>parking spaces</th>
-      <th>floor</th>
-      <th>animal</th>
-      <th>furniture</th>
+      <th>Area</th>
+      <th>Rooms</th>
+      <th>Bathroom</th>
+      <th>Parking spaces</th>
+      <th>Floor</th>
+      <th>Animal</th>
+      <th>Furniture</th>
       <th>hoa (R$)</th>
-      <th>rent amount (R$)</th>
-      <th>property tax (R$)</th>
-      <th>fire insurance (R$)</th>
-      <th>total (R$)</th>
+      <th>Rent amount (R$)</th>
+      <th>Property tax (R$)</th>
+      <th>Fire insurance (R$)</th>
+      <th>Total (R$)</th>
     </tr>
   </thead>
   <tbody>
@@ -628,8 +632,8 @@ Area Value description:
       <td>6</td>
       <td>6</td>
       <td>-</td>
-      <td>acept</td>
-      <td>furnished</td>
+      <td>Acept</td>
+      <td>Furnished</td>
       <td>0</td>
       <td>7600</td>
       <td>1834</td>
@@ -644,8 +648,8 @@ Area Value description:
       <td>8</td>
       <td>5</td>
       <td>11</td>
-      <td>acept</td>
-      <td>furnished</td>
+      <td>Acept</td>
+      <td>Furnished</td>
       <td>960</td>
       <td>8500</td>
       <td>646</td>
@@ -660,8 +664,8 @@ Area Value description:
       <td>4</td>
       <td>6</td>
       <td>-</td>
-      <td>acept</td>
-      <td>furnished</td>
+      <td>Acept</td>
+      <td>Furnished</td>
       <td>0</td>
       <td>6520</td>
       <td>654</td>
@@ -676,7 +680,7 @@ Area Value description:
       <td>5</td>
       <td>12</td>
       <td>-</td>
-      <td>acept</td>
+      <td>Acept</td>
       <td>not furnished</td>
       <td>1</td>
       <td>6900</td>
@@ -692,7 +696,7 @@ Area Value description:
       <td>2</td>
       <td>3</td>
       <td>-</td>
-      <td>acept</td>
+      <td>Acept</td>
       <td>not furnished</td>
       <td>0</td>
       <td>4956</td>
@@ -708,8 +712,8 @@ Area Value description:
       <td>3</td>
       <td>2</td>
       <td>2</td>
-      <td>acept</td>
-      <td>furnished</td>
+      <td>Acept</td>
+      <td>Furnished</td>
       <td>3000</td>
       <td>5000</td>
       <td>200</td>
@@ -724,7 +728,7 @@ Area Value description:
       <td>2</td>
       <td>0</td>
       <td>3</td>
-      <td>acept</td>
+      <td>Acept</td>
       <td>not furnished</td>
       <td>700</td>
       <td>1600</td>
@@ -768,14 +772,14 @@ The features seem to have some kind of correlation, but nothing concrect, or tot
     <tr style="text-align: right;">
       <th></th>
       <th>Count</th>
-      <th>mean</th>
+      <th>Mean</th>
       <th>std</th>
-      <th>min</th>
+      <th>Min</th>
       <th>25%</th>
       <th>50%</th>
       <th>75%</th>
-      <th>max</th>
-      <th>mode</th>
+      <th>Max</th>
+      <th>Mode</th>
     </tr>
   </thead>
   <tbody>
@@ -818,8 +822,8 @@ As expected we can see that the higher number of rooms/bathrooms the higher will
   <thead>
     <tr style="text-align: right;">
       <th>City</th>
-      <th>parking spaces</th>
-      <th>total (R$)</th>
+      <th>Parking spaces</th>
+      <th>Total (R$)</th>
     </tr>
   </thead>
   <tbody>
@@ -1043,8 +1047,8 @@ As we can see by the above table and graph, even though we have a high correlati
   <thead>
     <tr style="text-align: right;">
       <th>City</th>
-      <th>property tax (R$)</th>
-      <th>total (R$)</th>
+      <th>Property tax (R$)</th>
+      <th>Total (R$)</th>
     </tr>
   </thead>
   <tbody>
@@ -1115,8 +1119,8 @@ As seen above by both table and graph, the same behaviour observed in the proper
   <thead>
     <tr style="text-align: right;">
       <th>City</th>
-      <th>fire insurance (R$)</th>
-      <th>total (R$)</th>
+      <th>Fire insurance (R$)</th>
+      <th>Total (R$)</th>
     </tr>
   </thead>
   <tbody>
