@@ -16,6 +16,30 @@ Beyond that, this study seeks to answer some hypotheses such as:
 
 The data for carrying out this project was taken from: https://www.kaggle.com/rubenssjr/brasilian-houses-to-rent?select=houses_to_rent_v2.csv
 
+- [1.0 Dataset](#dataset)
+- [2.0 Exploratory Data Analysis](#eda)
+  * [2.1 General Dataset Analysis](#gda)
+  * [2.2 City](#city)
+  * [2.3 Area](#area)
+  * [2.4 Bathrooms and Rooms](#bath-and-room)
+  * [2.5 Parking Spaces](#parking)
+  * [2.6 Floor](#floor)
+  * [2.7 Animals/Pets](#pets)
+  * [2.8 Furniture](#furniture)
+  * [2.9 HOA](#hoa)
+  * [2.10 Property Tax](#tax)
+  * [2.11 Fire Insurance](#fire)
+- [3.0 Data Pre Processing](#dpp)
+- [4.0 Prediction Analasys with ML](#ml)
+  * [4.1 Linear Regression](#model-lr)
+  * [4.2 Decision Tree Regression](#model-dtr)
+  * [4.3 Random Forest Regression](#model-rfr)
+  * [4.4 SVM Regression](#model-svm)
+  * [4.5 Ridge Regression](#model-ridge)
+  * [4.6 Lasso Regression](#model-lasso)
+  * [4.7 Model Evaluation](#model-evaluation)
+- [Conclusion](#conclusion)
+
 # 1.0 Dataset
 
 <table border="1" class="dataframe">
