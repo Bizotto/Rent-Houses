@@ -1,6 +1,8 @@
 # Business Proposal
 
+<p align="center">
 ![Banner](aluga-se.png)
+</p>
 
 Build a model to predict the cost of renting a certain property, such a model can be of extreme help to the client so that he can create new business strategies and have a better view of the market, depending on the region or period.
 
